@@ -1,0 +1,475 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		646FFA142B0EB114003AFC48 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 646FFA132B0EB114003AFC48 /* AppDelegate.swift */; };
+		646FFA162B0EB114003AFC48 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 646FFA152B0EB114003AFC48 /* SceneDelegate.swift */; };
+		646FFA182B0EB114003AFC48 /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 646FFA172B0EB114003AFC48 /* WeatherViewController.swift */; };
+		646FFA1D2B0EB115003AFC48 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 646FFA1C2B0EB115003AFC48 /* Assets.xcassets */; };
+		646FFA202B0EB115003AFC48 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 646FFA1E2B0EB115003AFC48 /* LaunchScreen.storyboard */; };
+		646FFA282B0EB16A003AFC48 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 646FFA272B0EB16A003AFC48 /* Extensions.swift */; };
+		646FFA2F2B0ED36F003AFC48 /* DailyWeatherCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 646FFA2E2B0ED36F003AFC48 /* DailyWeatherCollectionViewCell.swift */; };
+		646FFA312B0ED461003AFC48 /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 646FFA302B0ED461003AFC48 /* Weather.swift */; };
+		646FFA332B0ED5A1003AFC48 /* HeaderCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 646FFA322B0ED5A1003AFC48 /* HeaderCollectionReusableView.swift */; };
+		F11B80ACF744D10328BFE834 /* Pods_Neobis_iOS_WeatherApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8ECF52FE761498A34F287AC4 /* Pods_Neobis_iOS_WeatherApp.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		646FFA102B0EB114003AFC48 /* Neobis_iOS_WeatherApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Neobis_iOS_WeatherApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		646FFA132B0EB114003AFC48 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		646FFA152B0EB114003AFC48 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		646FFA172B0EB114003AFC48 /* WeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewController.swift; sourceTree = "<group>"; };
+		646FFA1C2B0EB115003AFC48 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		646FFA1F2B0EB115003AFC48 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		646FFA212B0EB115003AFC48 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		646FFA272B0EB16A003AFC48 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		646FFA2E2B0ED36F003AFC48 /* DailyWeatherCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyWeatherCollectionViewCell.swift; sourceTree = "<group>"; };
+		646FFA302B0ED461003AFC48 /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
+		646FFA322B0ED5A1003AFC48 /* HeaderCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderCollectionReusableView.swift; sourceTree = "<group>"; };
+		71B284AE9458451FE6A449FC /* Pods-Neobis_iOS_WeatherApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Neobis_iOS_WeatherApp.release.xcconfig"; path = "Target Support Files/Pods-Neobis_iOS_WeatherApp/Pods-Neobis_iOS_WeatherApp.release.xcconfig"; sourceTree = "<group>"; };
+		8ECF52FE761498A34F287AC4 /* Pods_Neobis_iOS_WeatherApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Neobis_iOS_WeatherApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C9962F675399694CA87A16FF /* Pods-Neobis_iOS_WeatherApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Neobis_iOS_WeatherApp.debug.xcconfig"; path = "Target Support Files/Pods-Neobis_iOS_WeatherApp/Pods-Neobis_iOS_WeatherApp.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		646FFA0D2B0EB114003AFC48 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F11B80ACF744D10328BFE834 /* Pods_Neobis_iOS_WeatherApp.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		646FFA072B0EB114003AFC48 = {
+			isa = PBXGroup;
+			children = (
+				646FFA122B0EB114003AFC48 /* Neobis_iOS_WeatherApp */,
+				646FFA112B0EB114003AFC48 /* Products */,
+				658B606207573B5D81655DF5 /* Pods */,
+				F6FFB041F21AC800C9016BE4 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		646FFA112B0EB114003AFC48 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				646FFA102B0EB114003AFC48 /* Neobis_iOS_WeatherApp.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		646FFA122B0EB114003AFC48 /* Neobis_iOS_WeatherApp */ = {
+			isa = PBXGroup;
+			children = (
+				646FFA2A2B0EB1B0003AFC48 /* MainModule */,
+				646FFA272B0EB16A003AFC48 /* Extensions.swift */,
+				646FFA292B0EB17F003AFC48 /* Supporting files */,
+				646FFA212B0EB115003AFC48 /* Info.plist */,
+			);
+			path = Neobis_iOS_WeatherApp;
+			sourceTree = "<group>";
+		};
+		646FFA292B0EB17F003AFC48 /* Supporting files */ = {
+			isa = PBXGroup;
+			children = (
+				646FFA132B0EB114003AFC48 /* AppDelegate.swift */,
+				646FFA152B0EB114003AFC48 /* SceneDelegate.swift */,
+				646FFA1C2B0EB115003AFC48 /* Assets.xcassets */,
+				646FFA1E2B0EB115003AFC48 /* LaunchScreen.storyboard */,
+			);
+			path = "Supporting files";
+			sourceTree = "<group>";
+		};
+		646FFA2A2B0EB1B0003AFC48 /* MainModule */ = {
+			isa = PBXGroup;
+			children = (
+				646FFA172B0EB114003AFC48 /* WeatherViewController.swift */,
+				646FFA2B2B0EB1E8003AFC48 /* Model */,
+				646FFA2C2B0EB1EE003AFC48 /* View */,
+				646FFA2D2B0EB1FE003AFC48 /* ViewModel */,
+			);
+			path = MainModule;
+			sourceTree = "<group>";
+		};
+		646FFA2B2B0EB1E8003AFC48 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				646FFA302B0ED461003AFC48 /* Weather.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		646FFA2C2B0EB1EE003AFC48 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				646FFA2E2B0ED36F003AFC48 /* DailyWeatherCollectionViewCell.swift */,
+				646FFA322B0ED5A1003AFC48 /* HeaderCollectionReusableView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		646FFA2D2B0EB1FE003AFC48 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		658B606207573B5D81655DF5 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C9962F675399694CA87A16FF /* Pods-Neobis_iOS_WeatherApp.debug.xcconfig */,
+				71B284AE9458451FE6A449FC /* Pods-Neobis_iOS_WeatherApp.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		F6FFB041F21AC800C9016BE4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8ECF52FE761498A34F287AC4 /* Pods_Neobis_iOS_WeatherApp.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		646FFA0F2B0EB114003AFC48 /* Neobis_iOS_WeatherApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 646FFA242B0EB115003AFC48 /* Build configuration list for PBXNativeTarget "Neobis_iOS_WeatherApp" */;
+			buildPhases = (
+				0B28FEBEA0444020563A97E5 /* [CP] Check Pods Manifest.lock */,
+				646FFA0C2B0EB114003AFC48 /* Sources */,
+				646FFA0D2B0EB114003AFC48 /* Frameworks */,
+				646FFA0E2B0EB114003AFC48 /* Resources */,
+				26A6757C58238383E5265389 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Neobis_iOS_WeatherApp;
+			productName = Neobis_iOS_WeatherApp;
+			productReference = 646FFA102B0EB114003AFC48 /* Neobis_iOS_WeatherApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		646FFA082B0EB114003AFC48 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1420;
+				LastUpgradeCheck = 1420;
+				TargetAttributes = {
+					646FFA0F2B0EB114003AFC48 = {
+						CreatedOnToolsVersion = 14.2;
+					};
+				};
+			};
+			buildConfigurationList = 646FFA0B2B0EB114003AFC48 /* Build configuration list for PBXProject "Neobis_iOS_WeatherApp" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 646FFA072B0EB114003AFC48;
+			productRefGroup = 646FFA112B0EB114003AFC48 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				646FFA0F2B0EB114003AFC48 /* Neobis_iOS_WeatherApp */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		646FFA0E2B0EB114003AFC48 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				646FFA202B0EB115003AFC48 /* LaunchScreen.storyboard in Resources */,
+				646FFA1D2B0EB115003AFC48 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0B28FEBEA0444020563A97E5 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Neobis_iOS_WeatherApp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		26A6757C58238383E5265389 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Neobis_iOS_WeatherApp/Pods-Neobis_iOS_WeatherApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Neobis_iOS_WeatherApp/Pods-Neobis_iOS_WeatherApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Neobis_iOS_WeatherApp/Pods-Neobis_iOS_WeatherApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		646FFA0C2B0EB114003AFC48 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				646FFA332B0ED5A1003AFC48 /* HeaderCollectionReusableView.swift in Sources */,
+				646FFA182B0EB114003AFC48 /* WeatherViewController.swift in Sources */,
+				646FFA312B0ED461003AFC48 /* Weather.swift in Sources */,
+				646FFA142B0EB114003AFC48 /* AppDelegate.swift in Sources */,
+				646FFA162B0EB114003AFC48 /* SceneDelegate.swift in Sources */,
+				646FFA2F2B0ED36F003AFC48 /* DailyWeatherCollectionViewCell.swift in Sources */,
+				646FFA282B0EB16A003AFC48 /* Extensions.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		646FFA1E2B0EB115003AFC48 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				646FFA1F2B0EB115003AFC48 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		646FFA222B0EB115003AFC48 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		646FFA232B0EB115003AFC48 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		646FFA252B0EB115003AFC48 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C9962F675399694CA87A16FF /* Pods-Neobis_iOS_WeatherApp.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = W2CT3M99U7;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Neobis_iOS_WeatherApp/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Kr57.Neobis-iOS-WeatherApp";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		646FFA262B0EB115003AFC48 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 71B284AE9458451FE6A449FC /* Pods-Neobis_iOS_WeatherApp.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = W2CT3M99U7;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Neobis_iOS_WeatherApp/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Kr57.Neobis-iOS-WeatherApp";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		646FFA0B2B0EB114003AFC48 /* Build configuration list for PBXProject "Neobis_iOS_WeatherApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				646FFA222B0EB115003AFC48 /* Debug */,
+				646FFA232B0EB115003AFC48 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		646FFA242B0EB115003AFC48 /* Build configuration list for PBXNativeTarget "Neobis_iOS_WeatherApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				646FFA252B0EB115003AFC48 /* Debug */,
+				646FFA262B0EB115003AFC48 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 646FFA082B0EB114003AFC48 /* Project object */;
+}
