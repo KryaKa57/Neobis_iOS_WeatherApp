@@ -13,9 +13,9 @@ struct Weather: Hashable {
         self.degree = 0
     }
     
-    init(date: String, hour: String, statusImageName: String, degree: Int) {
+    init(date: String, dayOfWeek: String, statusImageName: String, degree: Int) {
         self.date = date
-        self.dayOfWeek = hour
+        self.dayOfWeek = dayOfWeek
         self.statusImageName = statusImageName
         self.degree = degree
     }

@@ -1,3 +1,9 @@
+//
+//  HeaderCollectionReusableView.swift
+//  Neobis_iOS_WeatherApp
+//
+//  Created by Alisher on 23.11.2023.
+//
 
 import Foundation
 import UIKit
@@ -7,20 +13,12 @@ class HeaderCollectionReusableView: UICollectionReusableView {
     
     private var firstLabel: UILabel {
         let label = UILabel()
-        label.text = "На этой неделе"
-        label.font = UIFont.boldSystemFont(ofSize: 24)
+        label.text = "The Next 5 days"
+        label.font = UIFont.boldSystemFont(ofSize: 18)
         label.textAlignment = .left
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.textColor = .white
+        label.textColor = .black
         return label
-    }
-    
-    private var calendarImageView: UIImageView {
-        let imageView = UIImageView()
-        imageView.image = UIImage(named: "calendar")
-        imageView.tintColor = .white
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        return imageView
     }
     
     override init(frame: CGRect) {
@@ -38,14 +36,13 @@ class HeaderCollectionReusableView: UICollectionReusableView {
     
     public func configure() {
         let stackView = UIStackView()
-        stackView.axis = .horizontal
         stackView.distribution = .fill
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.snp.makeConstraints {(make) in
+            make.height.equalTo(UIScreen.main.bounds.width * 0.2)
             make.width.equalTo(UIScreen.main.bounds.width * 0.8)
         }
         stackView.addArrangedSubview(firstLabel)
-        stackView.addArrangedSubview(calendarImageView)
         
         addSubview(stackView)
     }

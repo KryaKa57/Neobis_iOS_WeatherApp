@@ -1,16 +1,17 @@
 //
-//  ViewController.swift
+//  WeatherView.swift
 //  Neobis_iOS_WeatherApp
 //
 //  Created by Alisher on 23.11.2023.
 //
 
+import Foundation
 import UIKit
 import SnapKit
 
-class WeatherViewController: UIViewController {
+class WeatherView: UIView {
+    
     private let systemBounds = UIScreen.main.bounds
-    private var weatherData: [Weather] = []
     
     private lazy var gradient: CAGradientLayer = {
         let gradient = CAGradientLayer()
@@ -52,7 +53,7 @@ class WeatherViewController: UIViewController {
     
     private lazy var currentStatusImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(named: "weather_snow")
+        imageView.image = UIImage(named: "snow")
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
@@ -100,7 +101,7 @@ class WeatherViewController: UIViewController {
                 subView.addArrangedSubview(statusLabel)
                 subView.addArrangedSubview(statusValueLabel)
                 
-                subView.setCustomSpacing(16, after: statusLabel)
+                subView.setCustomSpacing(20, after: statusLabel)
             }
             subView.distribution = .fillProportionally
             subView.alignment = .center
@@ -117,42 +118,42 @@ class WeatherViewController: UIViewController {
         return stack
     }()
     
-    private lazy var weeklyCollectionView: UICollectionView = {
+    lazy var weeklyCollectionView: UICollectionView = {
 
         let dailyLayoutCollectionView = UICollectionViewFlowLayout()
         dailyLayoutCollectionView.scrollDirection = .horizontal
-        dailyLayoutCollectionView.itemSize = CGSize(width: view.frame.size.width*0.8, height: view.frame.size.height * 0.08)
+        dailyLayoutCollectionView.itemSize = CGSize(width: systemBounds.width*0.16, height: systemBounds.height * 0.16)
         dailyLayoutCollectionView.sectionHeadersPinToVisibleBounds = true
 
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: dailyLayoutCollectionView)
-        collectionView.backgroundColor = .white
+        collectionView.contentInset = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
+        collectionView.layer.cornerRadius = 32
         collectionView.frame = view.bounds
+        
         collectionView.register(DailyWeatherCollectionViewCell.self, forCellWithReuseIdentifier: DailyWeatherCollectionViewCell.identifier)
         collectionView.register(HeaderCollectionReusableView.self,
                                          forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
                                          withReuseIdentifier: HeaderCollectionReusableView.identifier)
-
+        
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         return collectionView
     }()
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        self.setNavigation()
-        self.initialize()
-        self.setConstraints()
+    lazy var view = UIView()
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        initialize()
+        setConstraints()
     }
     
-    private func setNavigation() {
-        let image = UIImage(systemName: "magnifyingglass", withConfiguration: UIImage.SymbolConfiguration(pointSize: 18, weight: .semibold))
-        let rightBarButton = UIBarButtonItem(image: image, style: .plain, target: self, action: nil)
-        
-        rightBarButton.tintColor = .black
-        self.navigationItem.rightBarButtonItem = rightBarButton
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     private func initialize() {
-        gradient.frame = view.bounds
+        addSubview(view)
+        gradient.frame = systemBounds
         view.layer.addSublayer(gradient)
         
         view.addSubview(dataLabel)
@@ -163,15 +164,15 @@ class WeatherViewController: UIViewController {
         view.addSubview(currentTemperatureLabel)
         view.addSubview(additionalInfoStackView)
         view.addSubview(weeklyCollectionView)
-        
-        weeklyCollectionView.delegate = self
-        weeklyCollectionView.dataSource = self
     }
     
     private func setConstraints() {
+        self.view.snp.makeConstraints { make in
+            make.top.leading.trailing.bottom.equalToSuperview()
+        }
         self.dataLabel.snp.makeConstraints {(make) in
             make.centerX.equalToSuperview()
-            make.top.equalToSuperview().offset(systemBounds.height * 0.15)
+            make.top.equalToSuperview().offset(systemBounds.height * 0.1)
         }
         self.cityLabel.snp.makeConstraints {(make) in
             make.centerX.equalToSuperview()
@@ -202,56 +203,7 @@ class WeatherViewController: UIViewController {
         }
         self.weeklyCollectionView.snp.makeConstraints {(make) in
             make.top.equalTo(additionalInfoStackView.snp.bottom).offset(32)
+            make.bottom.width.equalToSuperview()
         }
-    }
-    
-    private func fillInTheData() {
-            weatherData.append(Weather(date: "Апр, 26", hour: "15.00", statusImageName: "cloudy-sunny", degree: 29))
-            weatherData.append(Weather(date: "Апр, 26", hour: "16.00", statusImageName: "cloudy-sunny", degree: 26))
-            weatherData.append(Weather(date: "Апр, 26", hour: "17.00", statusImageName: "cloudy", degree: 24))
-            weatherData.append(Weather(date: "Апр, 26", hour: "18.00", statusImageName: "cloudy-night", degree: 23))
-            weatherData.append(Weather(date: "Апр, 26", hour: "19.00", statusImageName: "cloudy-night", degree: 22))
-            
-            weatherData.append(Weather(date: "Апр, 26", hour: "-", statusImageName: "rainy-thunder", degree: 21))
-            weatherData.append(Weather(date: "Апр, 27", hour: "-", statusImageName: "cloudy", degree: 22))
-            weatherData.append(Weather(date: "Апр, 28", hour: "-", statusImageName: "sunny", degree: 34))
-            weatherData.append(Weather(date: "Апр, 29", hour: "-", statusImageName: "cloudy", degree: 27))
-            weatherData.append(Weather(date: "Апр, 30", hour: "-", statusImageName: "cloudy-sunny", degree: 32))
-            weatherData.append(Weather(date: "Май, 1", hour: "-", statusImageName: "cloudy", degree: 29))
-            weatherData.append(Weather(date: "Май, 2", hour: "-", statusImageName: "rainy", degree: 24))
-            weatherData.append(Weather(date: "Май, 3", hour: "-", statusImageName: "rainy", degree: 22))
-            weatherData.append(Weather(date: "Май, 4", hour: "-", statusImageName: "rainy-thunder", degree: 21))
-            weatherData.append(Weather(date: "Май, 5", hour: "-", statusImageName: "sunny", degree: 28))
-            weatherData.append(Weather(date: "Май, 6", hour: "-", statusImageName: "sunny", degree: 31))
-            weatherData.append(Weather(date: "Май, 7", hour: "-", statusImageName: "cloudy-sunny", degree: 27))
-        }
-    
-    @objc func goToNextScreen(sender: UIButton) {
-    }
-}
-
-
-extension WeatherViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return weatherData.count
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DailyWeatherCollectionViewCell.identifier, for: indexPath) as! DailyWeatherCollectionViewCell
-        cell.configure(weather: weatherData[indexPath.row])
-        return cell
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: HeaderCollectionReusableView.identifier, for: indexPath) as! HeaderCollectionReusableView
-        headerView.configure()
-        return headerView
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-        return CGSize()
     }
 }
