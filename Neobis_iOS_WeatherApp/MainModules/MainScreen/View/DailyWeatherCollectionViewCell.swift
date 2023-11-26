@@ -30,7 +30,7 @@ class DailyWeatherCollectionViewCell : UICollectionViewCell {
         stack.layer.cornerRadius = 20
         stack.layer.borderColor = UIColor(rgb: 0xD4D4D4).cgColor
         stack.layer.borderWidth = 1
-        stack.layoutMargins = UIEdgeInsets(top: 16, left: 8, bottom: 8, right: 8)
+        stack.layoutMargins = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
         stack.isLayoutMarginsRelativeArrangement = true
         return stack
     }()
@@ -61,16 +61,30 @@ class DailyWeatherCollectionViewCell : UICollectionViewCell {
         }
         self.statusStackView.snp.makeConstraints{(make) in
             make.top.equalTo(weekDayLabel.snp.bottom).offset(8)
-            make.height.equalTo(contentView.snp.height).multipliedBy(0.5)
-            make.width.equalTo(contentView.snp.width)
-            make.centerX.centerY.equalTo(contentView.layoutMarginsGuide)
+            make.height.equalTo(contentView.snp.height).multipliedBy(0.6)
+            make.width.equalTo(contentView.snp.height).multipliedBy(0.5)
         }
     }
     
-    public func configure(weather: Weather) {
-        degreeLabel.text = "\(weather.degree)°C"
-        statusImageView.image = UIImage(named: weather.statusImageName)
-        weekDayLabel.text = weather.dayOfWeek
+    public func configure(weatherList: List) {
+        let tempInCelcius = Int(weatherList.main.temp - 273.15)
+        weekDayLabel.text = getDayOfWeek(seconds: weatherList.dt)
+        let icon = weatherList.weather.first?.icon
+        let dayIcon = icon?.replacingOccurrences(of: "n", with: "d")
+        
+        statusImageView.downloaded(from: URL(string: "https://openweathermap.org/img/wn/\(dayIcon ?? "")@2x.png")!)
+        degreeLabel.text = "\(tempInCelcius)°C"
     }
     
+    private func getDayOfWeek(seconds: Int) -> String {
+        switch (seconds / 86400) % 7 {
+        case 1: return "Friday"
+        case 2: return "Saturday"
+        case 3: return "Sunday"
+        case 4: return "Monday"
+        case 5: return "Tuesday"
+        case 6: return "Wednesday"
+        default: return "Thursday"
+        }
+    }
 }

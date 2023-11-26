@@ -9,8 +9,10 @@ import UIKit
 import SnapKit
 
 class WeatherViewController: UIViewController {
-    private var weatherData: [Weather] = []
     private var weatherView: WeatherView!
+    private var weatherViewModel: WeatherViewModel
+    
+    private var mainModel: Main?
     
     private let systemBounds = UIScreen.main.bounds
     
@@ -18,7 +20,23 @@ class WeatherViewController: UIViewController {
         super.viewDidLoad()
         self.createView()
         self.setNavigation()
-        self.fillInTheData()
+
+        self.weatherViewModel.onWeatherUpdated = { [weak self] in
+            DispatchQueue.main.async {
+                self?.weatherView.weeklyCollectionView.reloadData()
+                self?.weatherView.configure(weather: self?.weatherViewModel.weather)
+            }
+        }
+        
+    }
+    
+    init(viewModel: WeatherViewModel = WeatherViewModel()) {
+        self.weatherViewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     private func createView() {
@@ -29,14 +47,6 @@ class WeatherViewController: UIViewController {
         
         weatherView.weeklyCollectionView.dataSource = self
         weatherView.weeklyCollectionView.delegate = self
-    }
-    
-    private func fillInTheData() {
-        weatherData.append(Weather(date: "Апр, 26", dayOfWeek: "Sunday", statusImageName: "hail", degree: 29))
-        weatherData.append(Weather(date: "Апр, 26", dayOfWeek: "Monday", statusImageName: "snow-2", degree: 26))
-        weatherData.append(Weather(date: "Апр, 26", dayOfWeek: "Tuesday", statusImageName: "rain", degree: 24))
-        weatherData.append(Weather(date: "Апр, 26", dayOfWeek: "Wednesday", statusImageName: "cloud", degree: 23))
-        weatherData.append(Weather(date: "Апр, 26", dayOfWeek: "Thursday", statusImageName: "thunder", degree: 22))
     }
 }
 
@@ -64,12 +74,16 @@ extension WeatherViewController {
 // MARK: Configure UICollectionView
 extension WeatherViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return weatherData.count
+        return (self.weatherViewModel.weather?.list.count ?? 0) - 1
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        var listOfCells = self.weatherViewModel.weather?.list
+        listOfCells?.removeFirst()
+        
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DailyWeatherCollectionViewCell.identifier, for: indexPath) as! DailyWeatherCollectionViewCell
-        cell.configure(weather: weatherData[indexPath.row])
+        cell.configure(weatherList: (listOfCells?[indexPath.row])!)
         return cell
     }
     

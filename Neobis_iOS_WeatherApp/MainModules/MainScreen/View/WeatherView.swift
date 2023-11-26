@@ -13,6 +13,18 @@ class WeatherView: UIView {
     
     private let systemBounds = UIScreen.main.bounds
     
+    
+    let statusMeasures = ["mph","%","miles","mb"]
+    var statusValue = [7, 85, 6.4, 998] {
+        didSet {
+            for index in 0..<statusValue.count {
+                additionalInfoLabels[index].text = "\(statusValue[index]) \(statusMeasures[index])"
+            }
+        }
+    }
+    
+    var additionalInfoLabels: [UILabel] = []
+    
     private lazy var gradient: CAGradientLayer = {
         let gradient = CAGradientLayer()
         gradient.type = .axial
@@ -26,7 +38,6 @@ class WeatherView: UIView {
     
     private lazy var dataLabel: UILabel = {
         let label = UILabel()
-        label.text = "Today, May 7th, 2021"
         label.textColor = .white
         label.font = UIFont.systemFont(ofSize: 14)
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -35,7 +46,6 @@ class WeatherView: UIView {
     
     private lazy var cityLabel: UILabel = {
         let label = UILabel()
-        label.text = "Barcelona"
         label.textColor = .white
         label.font = UIFont.boldSystemFont(ofSize: 40)
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -44,7 +54,6 @@ class WeatherView: UIView {
     
     private lazy var countryLabel: UILabel = {
         let label = UILabel()
-        label.text = "Spain"
         label.textColor = .white
         label.font = UIFont.systemFont(ofSize: 20)
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -53,14 +62,12 @@ class WeatherView: UIView {
     
     private lazy var currentStatusImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(named: "snow")
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
     
     private let currentTemperatureLabel: UILabel = {
         let label = UILabel()
-        label.text = "20°C"
         label.font = UIFont.systemFont(ofSize: 72, weight: .light)
         return label
     }()
@@ -80,9 +87,6 @@ class WeatherView: UIView {
     private lazy var additionalInfoStackView: UIStackView = {
         let stack = UIStackView()
         let statusTitles = ["Wind status","Humidity","Visibility","Air pressure"]
-        let statusMeasures = ["mph","%","miles","mb"]
-        
-        let statusValue = [7, 85, 6.4, 998]
         
         for i in [0, 2] {
             let subView = UIStackView()
@@ -94,7 +98,6 @@ class WeatherView: UIView {
                 statusLabel.font = UIFont.systemFont(ofSize: 16, weight: .bold)
                 
                 let statusValueLabel = UILabel()
-                statusValueLabel.text = "\(statusValue[index]) \(statusMeasures[index])"
                 statusValueLabel.textColor = .white
                 statusValueLabel.font = UIFont.systemFont(ofSize: 20, weight: .light)
                 
@@ -102,6 +105,8 @@ class WeatherView: UIView {
                 subView.addArrangedSubview(statusValueLabel)
                 
                 subView.setCustomSpacing(20, after: statusLabel)
+                
+                self.additionalInfoLabels.append(statusValueLabel)
             }
             subView.distribution = .fillProportionally
             subView.alignment = .center
@@ -166,6 +171,27 @@ class WeatherView: UIView {
         view.addSubview(weeklyCollectionView)
     }
     
+    public func configure(weather: Welcome?) {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .medium
+        dateFormatter.locale = Locale(identifier: "en_US")
+        let formattedDate = dateFormatter.string(from: Date())
+        dataLabel.text = "Today, \(formattedDate)"
+        cityLabel.text = weather?.city.name ?? "Unknown"
+        countryLabel.text = weather?.city.country ?? "Unknown"
+        
+        currentTemperatureLabel.text = "\(Int((weather?.list.first?.main.temp ?? 0.0) - 273.15))°C"
+        
+        let icon = weather?.list.first?.weather.first?.icon
+        currentStatusImageView.downloaded(from: URL(string: "https://openweathermap.org/img/wn/\(icon ?? "")@2x.png")!)
+        
+        
+        statusValue[0] = weather?.list.first?.wind.speed ?? 0
+        statusValue[1] = Double(weather?.list.first?.main.humidity ?? 0)
+        statusValue[2] = Double(weather?.list.first?.visibility ?? 0) * 0.62
+        statusValue[3] = Double(weather?.list.first?.main.pressure ?? 0)
+    }
+    
     private func setConstraints() {
         self.view.snp.makeConstraints { make in
             make.top.leading.trailing.bottom.equalToSuperview()
@@ -190,7 +216,7 @@ class WeatherView: UIView {
         self.currentStatusImageView.snp.makeConstraints {(make) in
             make.centerX.equalToSuperview()
             make.top.equalTo(whiteCircleCiew.snp.top).offset(8)
-            make.width.height.equalTo(whiteCircleCiew.snp.height).multipliedBy(0.3)
+            make.width.height.equalTo(whiteCircleCiew.snp.height).multipliedBy(0.4)
         }
         self.currentTemperatureLabel.snp.makeConstraints {(make) in
             make.centerX.equalToSuperview()
@@ -205,5 +231,26 @@ class WeatherView: UIView {
             make.top.equalTo(additionalInfoStackView.snp.bottom).offset(32)
             make.bottom.width.equalToSuperview()
         }
+    }
+}
+
+extension UIImageView {
+    func downloaded(from url: URL, contentMode mode: ContentMode = .scaleAspectFit) {
+        contentMode = mode
+        URLSession.shared.dataTask(with: url) { data, response, error in
+            guard
+                let httpURLResponse = response as? HTTPURLResponse, httpURLResponse.statusCode == 200,
+                let mimeType = response?.mimeType, mimeType.hasPrefix("image"),
+                let data = data, error == nil,
+                let image = UIImage(data: data)
+                else { return }
+            DispatchQueue.main.async() { [weak self] in
+                self?.image = image
+            }
+        }.resume()
+    }
+    func downloaded(from link: String, contentMode mode: ContentMode = .scaleAspectFit) {
+        guard let url = URL(string: link) else { return }
+        downloaded(from: url, contentMode: mode)
     }
 }
