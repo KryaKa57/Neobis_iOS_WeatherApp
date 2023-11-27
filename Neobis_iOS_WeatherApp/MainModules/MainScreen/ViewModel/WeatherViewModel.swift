@@ -9,6 +9,12 @@ import Foundation
 
 
 class WeatherViewModel {
+    var currentCity = "London" {
+        didSet {
+            fetchData(city: self.currentCity)
+        }
+    }
+    
     var onWeatherUpdated: (() -> Void)?
     var onErrorMessage: ((WeatherServiceError) -> Void)?
     
@@ -22,8 +28,8 @@ class WeatherViewModel {
         self.fetchData()
     }
     
-    public func fetchData() {
-        let endpoint = Endpoint.fetchData()
+    public func fetchData(city: String? = nil) {
+        let endpoint = Endpoint.fetchData(city: city ?? "London")
         
         WeatherService.fetchData(with: endpoint) { [weak self] result in
             switch result {

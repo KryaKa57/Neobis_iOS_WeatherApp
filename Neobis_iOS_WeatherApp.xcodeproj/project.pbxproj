@@ -24,6 +24,7 @@
 		6494AB962B132ED000952383 /* EndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6494AB952B132ED000952383 /* EndPoint.swift */; };
 		6494AB982B1333AD00952383 /* WeatherService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6494AB972B1333AD00952383 /* WeatherService.swift */; };
 		6494AB9C2B1342F000952383 /* HTTP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6494AB9B2B1342F000952383 /* HTTP.swift */; };
+		6494ABA42B14D3D300952383 /* cities_list.csv in Resources */ = {isa = PBXBuildFile; fileRef = 6494ABA32B14D3D300952383 /* cities_list.csv */; };
 		F11B80ACF744D10328BFE834 /* Pods_Neobis_iOS_WeatherApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8ECF52FE761498A34F287AC4 /* Pods_Neobis_iOS_WeatherApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -47,6 +48,8 @@
 		6494AB952B132ED000952383 /* EndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPoint.swift; sourceTree = "<group>"; };
 		6494AB972B1333AD00952383 /* WeatherService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherService.swift; sourceTree = "<group>"; };
 		6494AB9B2B1342F000952383 /* HTTP.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTP.swift; sourceTree = "<group>"; };
+		6494ABA32B14D3D300952383 /* cities_list.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = cities_list.csv; path = ../../../../cities_list.csv; sourceTree = "<group>"; };
+		6494ABA52B14D3D800952383 /* cities_list.csv */ = {isa = PBXFileReference; lastKnownFileType = text; path = cities_list.csv; sourceTree = "<group>"; };
 		71B284AE9458451FE6A449FC /* Pods-Neobis_iOS_WeatherApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Neobis_iOS_WeatherApp.release.xcconfig"; path = "Target Support Files/Pods-Neobis_iOS_WeatherApp/Pods-Neobis_iOS_WeatherApp.release.xcconfig"; sourceTree = "<group>"; };
 		8ECF52FE761498A34F287AC4 /* Pods_Neobis_iOS_WeatherApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Neobis_iOS_WeatherApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9962F675399694CA87A16FF /* Pods-Neobis_iOS_WeatherApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Neobis_iOS_WeatherApp.debug.xcconfig"; path = "Target Support Files/Pods-Neobis_iOS_WeatherApp/Pods-Neobis_iOS_WeatherApp.debug.xcconfig"; sourceTree = "<group>"; };
@@ -88,6 +91,7 @@
 				646FFA2A2B0EB1B0003AFC48 /* MainModules */,
 				646FFA292B0EB17F003AFC48 /* Supporting files */,
 				646FFA212B0EB115003AFC48 /* Info.plist */,
+				6494ABA52B14D3D800952383 /* cities_list.csv */,
 				6494AB852B0F94F400952383 /* Extension */,
 			);
 			path = Neobis_iOS_WeatherApp;
@@ -100,6 +104,7 @@
 				646FFA152B0EB114003AFC48 /* SceneDelegate.swift */,
 				646FFA1C2B0EB115003AFC48 /* Assets.xcassets */,
 				646FFA1E2B0EB115003AFC48 /* LaunchScreen.storyboard */,
+				6494ABA32B14D3D300952383 /* cities_list.csv */,
 			);
 			path = "Supporting files";
 			sourceTree = "<group>";
@@ -274,6 +279,7 @@
 			files = (
 				646FFA202B0EB115003AFC48 /* LaunchScreen.storyboard in Resources */,
 				646FFA1D2B0EB115003AFC48 /* Assets.xcassets in Resources */,
+				6494ABA42B14D3D300952383 /* cities_list.csv in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

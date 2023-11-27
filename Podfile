@@ -7,6 +7,7 @@ target 'Neobis_iOS_WeatherApp' do
 
   # Pods for Neobis_iOS_WeatherApp
   pod 'SnapKit', '~> 5.0.0'
+  pod 'CSV.swift', '~> 2.4.3'
 
   post_install do |installer|
     installer.pods_project.targets.each do |target|

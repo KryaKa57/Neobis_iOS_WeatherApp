@@ -33,7 +33,7 @@ class SearchView: UIView {
         return button
     }()
     
-    private lazy var locationSearchBar: UISearchBar = {
+    lazy var locationSearchBar: UISearchBar = {
         let searchBar = UISearchBar()
         searchBar.searchTextField.attributedPlaceholder = NSAttributedString(string: "Search location", attributes: [NSAttributedString.Key.foregroundColor: UIColor.black])
         searchBar.setImage(UIImage(), for: .search, state: .normal)

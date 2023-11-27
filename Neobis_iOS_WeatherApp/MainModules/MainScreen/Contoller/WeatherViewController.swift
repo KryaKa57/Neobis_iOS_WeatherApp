@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-class WeatherViewController: UIViewController {
+class WeatherViewController: UIViewController, DataDelegate {
     private var weatherView: WeatherView!
     private var weatherViewModel: WeatherViewModel
     
@@ -62,12 +62,15 @@ extension WeatherViewController {
     }
     
     @objc func goToNextScreen() {
-        var nextScreen: UIViewController
-        nextScreen = SearchLocationViewController()
-            
+        let nextScreen = SearchLocationViewController()
+        nextScreen.delegate = self
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         navigationController?.navigationBar.tintColor = UIColor(rgb: 0x000000, alpha: 0)
         navigationController?.pushViewController(nextScreen, animated: true)
+    }
+    
+    func sendData(city: String) {
+        weatherViewModel.currentCity = city
     }
 }
 
